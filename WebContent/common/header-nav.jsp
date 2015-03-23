@@ -1,6 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     
+<!--    
+		jstl 객체 변수설명 
+			path = 현재 프로젝트 경로 명 
+-->
+    
         
 		<nav class="navbar navbar-fixed-top header">
 			<div class="container">

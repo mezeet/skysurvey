@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE Context>
+<Context>
+ <Resource name="jdbc/OracleDB"
+  auth="Container"
+  type="javax.sql.DataSource"
+  username="아이디"
+  password="암호"
+  driverClassName="oracle.jdbc.driver.OracleDriver"
+  factory="org.apache.tomcat.dbcp.dbcp.BasicDataSourceFactory"
+  url="jdbc:oracle:thin:@접속주소:orcl"
+  maxActive="500"
+  maxIdle="100"/>
+</Context>

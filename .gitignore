@@ -1,5 +1,5 @@
 /build
-.svn/
-.settings/
-.git/
 /WebContent/META-INF/context.xml
+.svn/
+.metadata/
+.settings/

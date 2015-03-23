@@ -2,12 +2,12 @@
  *  Font Awesome 4.3.0 by @davegandy - http://fontawesome.io - @fontawesome
  *  License - http://fontawesome.io/license (Font: SIL OFL 1.1, CSS: MIT License)
  */
-/* FONT PATH : 현재 프로젝트에서 동작하도록 ${path} 상대 경로를 이용하도록 변경. 현재 작동됨
+/* FONT PATH : 현재 프로젝트에서 동작하도록 상대 경로를 이용하여 작동하도록 재수정. el 객체 작동안함
  * -------------------------- */
 @font-face {
   font-family: 'FontAwesome';
-  src: url('${path}/assets/fonts/fontawesome-webfont.eot?v=4.3.0');
-  src: url('${path}/assets/fonts/fontawesome-webfont.eot?#iefix&v=4.3.0') format('embedded-opentype'), url('${path}/assets/fonts/fontawesome-webfont.woff2?v=4.3.0') format('woff2'), url('${path}/assets/fonts/fontawesome-webfont.woff?v=4.3.0') format('woff'), url('${path}/assets/fonts/fontawesome-webfont.ttf?v=4.3.0') format('truetype'), url('${path}/assets/fonts/fontawesome-webfont.svg?v=4.3.0#fontawesomeregular') format('svg');
+  src: url('../fonts/fontawesome-webfont.eot?v=4.3.0');
+  src: url('../fonts/fontawesome-webfont.eot?#iefix&v=4.3.0') format('embedded-opentype'), url('../fonts/fontawesome-webfont.woff2?v=4.3.0') format('woff2'), url('../fonts/fontawesome-webfont.woff?v=4.3.0') format('woff'), url('../fonts/fontawesome-webfont.ttf?v=4.3.0') format('truetype'), url('../fonts/fontawesome-webfont.svg?v=4.3.0#fontawesomeregular') format('svg');
   font-weight: normal;
   font-style: normal;
 }

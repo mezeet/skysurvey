@@ -14,4 +14,5 @@
 					<![endif]-->
 <link href="${path}/assets/css/styles.css" rel="stylesheet">
 <link href="${path}/assets/css/font-awesome.css" rel="stylesheet">
+<link href="${path}/assets/css/bootstrap-slider.min.css" rel="stylesheet">
 </head>

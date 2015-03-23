@@ -1,18 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>  
+	pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <!-- 수정가능 영역 시작, 화면에서 가운데에 나오는 영역입니다. -->
 
 <%-- 	프로젝트 상대경로 : ${path} --%>
 
 <section>
-<form action="join.jsp">
-<table>
-<filedset>회원 가입</filedset>
-<tr>
-	<td>
-	<textarea rows="20" cols="40">
+	<form action="join.jsp">
+		<table>
+			<filedset>회원 가입</filedset>
+			<tr>
+				<td><textarea rows="20" cols="40">
 	서베이 서비스약관 (2015. 9. 6 부터 유효)
 제1장 총 칙
 제 1 조 (목적)
@@ -26,18 +25,16 @@
 1.회사는 이 약관의 내용을 회원이 쉽게 알 수 있도록 서비스 초기 화면에 게시합니다.
 2.회사는 온라인 디지털콘텐츠산업 발전법, 전자상거래 등에서의 소비자보호에 관한 법률, 약관의
  규제에 관한 법률, 소비자기본법 등 관련법을 위배하지 않는 범위에서 이 약관을 개정할 수 있습니다.
-</textarea>
-	</td>
-</tr>
-<tr>
-<td>
-	<input type="button" value="동의" onclick="location='join.jsp'">
-	<input type="button" value="취소" onclick="history.back();">
-	</td>
-</tr>
-</table>
+</textarea></td>
+			</tr>
+			<tr>
+				<td><input type="button" value="동의"
+					onclick="location='join.jsp'"> <input type="button"
+					value="취소" onclick="history.back();"></td>
+			</tr>
+		</table>
 
-</form>
+	</form>
 </section>
 
 <!-- 수정가능 영역 끝, 화면에서 가운데에 나오는 영역입니다. -->

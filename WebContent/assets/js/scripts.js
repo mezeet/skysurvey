@@ -13,3 +13,9 @@ $(document).ready(function(){/* jQuery toggle layout */
 });
 
 var mySlider = $("input.slider").slider();
+
+
+//타임어고 라이브러리 적용	
+jQuery(document).ready(function() {
+		  jQuery("ago.timeago").timeago();
+});

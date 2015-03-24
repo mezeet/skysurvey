@@ -88,11 +88,13 @@
 						</div>
 					</div>
 					<div class="row no-gutters">
-						<div class="col-xs-6">
-							<a class="btn form-control btn-primary" id="exampleInputEmail1">남자</a>
-						</div>
-						<div class="col-xs-6">
-							<a class="btn form-control btn-primary" id="exampleInputEmail1">여자</a>
+						<div class="btn-group  btn-group-justified" data-toggle="buttons">
+						  <label class="btn btn-primary">
+						    <input type="radio" name="options" id="option1"> 남
+						  </label>
+						  <label class="btn btn-primary">
+						    <input type="radio" name="options" id="option2"> 여
+						  </label>
 						</div>
 					</div>
 					<div class="row">	

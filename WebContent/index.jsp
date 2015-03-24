@@ -38,10 +38,27 @@
 	<div class="container" id="main">
 		<!-- container 클래스는 콘텐츠를 중앙으로 정렬시킨다. -->
 
-		<!-- 	본문 영역 시작 -->
-		<jsp:include page="${main}"></jsp:include>
-		<!-- 	본문 영역 끝 -->
-
+		<div class="row">
+		<!-- 	본문 좌측 영역 시작 -->
+		
+			<div class="col-xs-12 col-sm-7 col-md-7 col-lg-7">
+				<jsp:include page="${main}"></jsp:include>
+			</div>
+		
+		<!-- 	본문 좌측 영역 끝 -->
+		
+		<!-- 	본분 우측 영역 시작 -->
+		
+			<div class="col-sm-4 visible-sm visible-md visible-lg">
+				<div class="row">
+					<div class="col-sm-11 col-sm-push-1">
+						<%@include file="./common/main-sidenav.jsp"%>
+					</div>
+				</div>
+			</div>
+			
+		<!-- 	본문 우측 영역 끝 -->
+		</div>
 
 		<!--	모달 영역 시작 -->
 		<%@include file="./common/main-modals.jsp"%>
@@ -57,6 +74,7 @@
 	<!-- 스크립트 영역 시작 -->
 	<%@include file="./common/footer-script.jsp"%>
 	<!-- 스크립트 영역 끝 -->
+	
 </body>
 <!-- 	<body> 영역 끝 -->
 </html>

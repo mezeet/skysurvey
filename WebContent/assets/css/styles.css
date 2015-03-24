@@ -192,3 +192,16 @@ h3,h4,h5 {
 	background-color: #ffffff;
 	border-width: 0;
 }
+
+
+/* 컬럼 간 마진(거터) 없애기*/ 
+
+.row.no-gutters {
+  margin-right: 0;
+  margin-left: 0;
+}
+.row.no-gutters > [class^="col-"],
+.row.no-gutters > [class*=" col-"] {
+  padding-right: 0;
+  padding-left: 0;
+}

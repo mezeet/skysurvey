@@ -9,7 +9,7 @@
 
 <nav class="navbar navbar-fixed-top header">
 	<div class="container">
-		<div class="col-md-12 container">
+		<div class="col-sm-12 container">
 			<div class="navbar-header">
 				<a href="${path}/index.jsp" class="navbar-brand">스카이 서베이</a>
 				<button type="button" class="navbar-toggle" data-toggle="collapse"
@@ -20,6 +20,12 @@
 			</div>
 			<div class="collapse navbar-collapse" id="navbar-collapse">
 				<ul class="nav navbar-nav navbar-right">
+					<li><a class="btn btn-suceess visible-xs">xs</a></li>
+					<li><a class="btn btn-suceess visible-sm">sm</a></li>
+					<li><a class="btn btn-suceess visible-md">md</a></li>
+					<li><a class="btn btn-suceess visible-lg">lg</a></li>
+				
+				
 					<li>
 						<form class="navbar-form pull-left">
 							<div class="input-group" style="max-width: 470px;">

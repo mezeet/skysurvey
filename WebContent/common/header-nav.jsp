@@ -24,7 +24,7 @@
 					<li><a class="btn btn-suceess visible-sm">sm</a></li>
 					<li><a class="btn btn-suceess visible-md">md</a></li>
 					<li><a class="btn btn-suceess visible-lg">lg</a></li>
-				
+							
 				
 					<li>
 						<form class="navbar-form pull-left">
@@ -38,6 +38,9 @@
 								</div>
 							</div>
 						</form>
+					</li>
+					<li>
+						<a href="#loginModal" role="button" data-toggle="modal">로그인</a>
 					</li>
 					<li><a href="#" class="dropdown-toggle" data-toggle="dropdown"><i
 							class="glyphicon glyphicon-user"></i></a>

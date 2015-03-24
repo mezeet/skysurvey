@@ -193,6 +193,21 @@ h3,h4,h5 {
 	border-width: 0;
 }
 
+/* 현황 출력 용 배치 스타일*/
+/* http://www.jodymickey.com/post/49800930506/a-little-extra-for-twitter-bootstrap-badges */
+
+.badge-text {
+  background-color: @bodyBackground;
+  background-color: rgba(255,177,133,0.8);
+  color: @textColor;
+  text-shadow: none;
+  display: inline-block;
+  margin-right: -7px;
+  margin-left: 2px;
+  padding: 0 6px 0 3px;
+  .border-right-radius(9px);
+}
+
 
 /* 컬럼 간 마진(거터) 없애기*/ 
 

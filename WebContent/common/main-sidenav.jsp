@@ -34,6 +34,7 @@
   	</div>
   </div>
   
+	<!--    공시사항 카드영역 시작 -->
   <div class="row">
   	<div class="col-xs-12">
   		<div class="row panel">

@@ -4,14 +4,14 @@
 <!-- jsql c:choose c:when c:if 태그를 사용하기 위해서 jstl 라이브러리를 집어넣는다. -->
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
-		<!--  설문 작성 대기 카드 시작 -->
+		<!--  일반적인 action=주소 로 요청하고 값 받기 예시 카드 시작 -->
 		<div class="row">
 			<div class="col-xs-12">
 				<div class="well well-sm">
 				
 					<!-- 자 이제 우리가 만들어 놓은 testRequest 클래스에 폼 내부에 입력값을 전송해 봅시다. -->
 					<!-- 이름은 inputId 와 inputPassword 입니다. -->
-					<form action="testRequest.do" method="post" class="form-horizontal" role="form">
+					<form action="TestRequest.do" method="post" class="form-horizontal" role="form">
 						<div class="row">
 							<div class="col-xs-5">
 						  		아이디  <input type="text" name="inputId" id="inputId">
@@ -22,22 +22,18 @@
 							<div class="col-xs-2">
 						    <button class="btn btn=" type="submit">submit 버튼</button>
 							</div>
-							<div class="col-xs-2" id="ajaxButton">
-						    <button class="btn btn=">ajax 버튼</button>
-							</div>
 						</div>		
 					</form>
 				</div>
 			</div>
 		</div>
-		<!--  설문 작성 대기 카드 끝 -->
-		
-		
+		<!--   일반적인 action=주소 로 요청하고 값 받기 예시 카드 끝 -->
+			
 		<!-- 요청 결과로 testRequest 클래스로부터 돌려받는 상태값 확인 카드 시작 -->
 		<div class="row">
 			<div class="col-xs-12">
 				<div class="well well-sm">
-					<form action="testRequest.do" class="form-horizontal" role="form">
+					<form class="form-horizontal" role="form">
 						<div class="row">
 							<div class="col-xs-5">
 						  	 사용자 인가? :  ${isUser}
@@ -75,7 +71,75 @@
 		</div>
 		<!-- 요청 결과로 testRequest 클래스로부터 돌려받는 상태값 확인 카드 끝 -->
 		
+
+		<!-- ajax 로   요청하고 값 받기 예시 카드 시작-->
+		<div class="row">
+			<div class="col-xs-12">
+				<div class="well well-sm">
+				
+					<!-- 자 이제 우리가 만들어 놓은 testRequest 클래스에 폼 내부에 입력값을 전송해 봅시다. -->
+					<!-- 이름은 inputId 와 inputPassword 입니다. -->
+					<form method="post" action="TestAjax" class="form-horizontal" role="form" id="testForm">
+						<div class="row">
+							<div class="col-xs-5">
+						  		아이디  <input type="text" name="inputId" id="inputId">
+							</div>	
+							<div class="col-xs-5">
+						   		암호 <input type="password" name="inputPassword" id="inputPassword" >
+							</div>
+							<div class="col-xs-2" id="ajaxButton">
+						    <button class="btn btn=">ajax 버튼</button>
+							</div>
+						</div>		
+					</form>
+				</div>
+			</div>
+		</div>
+		<!-- ajax 로   요청하고 값 받기 예시 카드 끝-->
 		
+		
+		<!-- 요청 결과로 testRequest 클래스로부터 돌려받는 상태값 확인 카드 시작 -->
+		<div class="row">
+			<div class="col-xs-12">
+				<div class="well well-sm">
+					<form class="form-horizontal" role="form">
+						<div class="row">
+							<div class="col-xs-5">
+						  	 사용자 인가? :  ${isUser}
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-xs-5">
+						   	 <span>성공인가? <input class="state"></span>
+						   	 
+                  <!--	state 변수에 있는 값을 검사해서 특정 태그 내용을 보이거나 안보이게 한다. -->
+						   	 	<c:choose>
+							   	 <c:when test="${state == 'success'}">
+							   	 	 <div class="alert alert-success">...</div>
+							   	 </c:when>
+							   	 <c:when test="${state == 'warning'}">
+							   	 	 <div class="alert alert-warning">...</div>
+							   	 </c:when>
+						   	 </c:choose>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-xs-12">
+						    <ul class="list-group">
+								  <li class="list-group-item">번호 : ${tbean.userNo}</li>
+								  <li class="list-group-item">아이디 : ${tbean.id}</li>
+								  <li class="list-group-item">이름 : ${tbean.name}</li>
+								  <li class="list-group-item">포인트 : ${tbean.point}</li>
+								  <li class="list-group-item">프로파일 완성도 : ${tbean.profileRatio}</li>
+								</ul>
+							</div>
+						</div>		
+					</form>
+				</div>
+			</div>
+		</div>
+		<!-- 요청 결과로 testRequest 클래스로부터 돌려받는 상태값 확인 카드 끝 -->
+
 		 
 	<!--  투표 간단 설문 작성 카드 시작 -->
 		<div class="row">

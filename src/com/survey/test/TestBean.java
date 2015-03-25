@@ -18,6 +18,7 @@ public class TestBean {
 	private String name;
 	private int point;
 	private String profileRatio;
+	private String state;
 	
 	
 	public Boolean getIsUser() {
@@ -61,6 +62,12 @@ public class TestBean {
 	}
 	public void setProfileRatio(String profileRatio) {
 		this.profileRatio = profileRatio;
+	}
+	public String getState() {
+		return state;
+	}
+	public void setState(String state) {
+		this.state = state;
 	}
 	
 	

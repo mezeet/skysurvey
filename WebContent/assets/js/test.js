@@ -33,14 +33,18 @@ $(document).ready(function(){
 	$('#ajaxbutton').click(function(){
 		
 
+		// url 뒤에 ?키=값&키=값 .. 요렇게 안쓰기 위해서 폼에 담긴 값을 직렬화(serialize) 시킵니다.
+		var formData = $("#testForm").serialize();
+		
 		
 		$.ajax({      
 		    type:"post",                // 보내는 방식
-		    url:"./testRequest.do",    // 요청주소
+		    url:"TestAjax",    // 요청주소
 		    dataType:'json',            // 받을 자료 종류, html 은 생략가능?
-		    params: '',
-		  	success:function(args){	  			
-		  		$("#qselection > #area").append(args);
+		    params: formData,          // 서버로 보낼 자료
+		  	success:function(args){ 	
+		  		alert(args);
+		  				$('.state').append(args.state);
 		  		}, // 성공했을때 실행할 콜백, args 에는 받아온 결과내용이 들어 있다.
 		      
 		    error:function(e){  

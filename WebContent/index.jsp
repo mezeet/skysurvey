@@ -41,7 +41,7 @@
 		<div class="row">
 		<!-- 	본문 좌측 영역 시작 -->
 		
-			<div class="col-xs-12 col-sm-7 col-md-7 col-lg-7">
+			<div class="col-xs-12 col-sm-12 col-md-7 col-lg-7">
 				<jsp:include page="${main}"></jsp:include>
 			</div>
 		
@@ -49,7 +49,7 @@
 		
 		<!-- 	본분 우측 영역 시작 -->
 		
-			<div class="col-sm-4 visible-sm visible-md visible-lg">
+			<div class="col-sm-4  visible-md visible-lg">
 				<div class="row">
 					<div class="col-sm-11 col-sm-push-1">
 						<%@include file="./common/main-sidenav.jsp"%>

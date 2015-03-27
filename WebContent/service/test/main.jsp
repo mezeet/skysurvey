@@ -14,7 +14,8 @@
 					<form action="TestRequest.do" method="post" class="form-horizontal" role="form">
 						<div class="row">
 							<div class="col-xs-5">
-						  		아이디  <input type="text" name="inputId" id="inputId">
+						  		아이디  
+						  		<input type="text" name="inputId" id="inputId">
 							</div>	
 							<div class="col-xs-5">
 						   		암호 <input type="password" name="inputPassword" id="inputPassword" >
@@ -28,48 +29,6 @@
 			</div>
 		</div>
 		<!--   일반적인 action=주소 로 요청하고 값 받기 예시 카드 끝 -->
-			
-		<!-- 요청 결과로 testRequest 클래스로부터 돌려받는 상태값 확인 카드 시작 -->
-		<div class="row">
-			<div class="col-xs-12">
-				<div class="well well-sm">
-					<form class="form-horizontal" role="form">
-						<div class="row">
-							<div class="col-xs-5">
-						  	 사용자 인가? :  ${isUser}
-							</div>
-						</div>
-						<div class="row">
-							<div class="col-xs-5">
-						   	 <span>성공인가? ${state}</span>
-						   	 
-                  <!--	state 변수에 있는 값을 검사해서 특정 태그 내용을 보이거나 안보이게 한다. -->
-						   	 	<c:choose>
-							   	 <c:when test="${state == 'success'}">
-							   	 	 <div class="alert alert-success">...</div>
-							   	 </c:when>
-							   	 <c:when test="${state == 'warning'}">
-							   	 	 <div class="alert alert-warning">...</div>
-							   	 </c:when>
-						   	 </c:choose>
-							</div>
-						</div>
-						<div class="row">
-							<div class="col-xs-12">
-						    <ul class="list-group">
-								  <li class="list-group-item">번호 : ${tbean.userNo}</li>
-								  <li class="list-group-item">아이디 : ${tbean.id}</li>
-								  <li class="list-group-item">이름 : ${tbean.name}</li>
-								  <li class="list-group-item">포인트 : ${tbean.point}</li>
-								  <li class="list-group-item">프로파일 완성도 : ${tbean.profileRatio}</li>
-								</ul>
-							</div>
-						</div>		
-					</form>
-				</div>
-			</div>
-		</div>
-		<!-- 요청 결과로 testRequest 클래스로부터 돌려받는 상태값 확인 카드 끝 -->
 		
 
 		<!-- ajax 로   요청하고 값 받기 예시 카드 시작-->
@@ -79,7 +38,7 @@
 				
 					<!-- 자 이제 우리가 만들어 놓은 testRequest 클래스에 폼 내부에 입력값을 전송해 봅시다. -->
 					<!-- 이름은 inputId 와 inputPassword 입니다. -->
-					<form method="post" action="TestAjax" class="form-horizontal" role="form" id="testForm">
+					<form method="post" action="TestAjax.do" class="form-horizontal" role="form" id="testForm">
 						<div class="row">
 							<div class="col-xs-5">
 						  		아이디  <input type="text" name="inputId" id="inputId">
@@ -98,7 +57,7 @@
 		<!-- ajax 로   요청하고 값 받기 예시 카드 끝-->
 		
 		
-		<!-- 요청 결과로 testRequest 클래스로부터 돌려받는 상태값 확인 카드 시작 -->
+		<!-- 요청 결과로 TestAjax 클래스로부터 돌려받는 상태값 확인 카드 시작 -->
 		<div class="row">
 			<div class="col-xs-12">
 				<div class="well well-sm">
@@ -110,17 +69,22 @@
 						</div>
 						<div class="row">
 							<div class="col-xs-5">
-						   	 <span>성공인가? <input class="state"></span>
+						   	 <span>성공인가? ${state}</span>
 						   	 
                   <!--	state 변수에 있는 값을 검사해서 특정 태그 내용을 보이거나 안보이게 한다. -->
 						   	 	<c:choose>
 							   	 <c:when test="${state == 'success'}">
-							   	 	 <div class="alert alert-success">...</div>
+							   	 	 <div class="alert alert-success">성공했다!</div>
 							   	 </c:when>
 							   	 <c:when test="${state == 'warning'}">
-							   	 	 <div class="alert alert-warning">...</div>
+							   	 	 <div class="alert alert-warning">실패했다!</div>
 							   	 </c:when>
 						   	 </c:choose>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-xs-12">
+							<h3>회원 정보</h3>
 							</div>
 						</div>
 						<div class="row">
@@ -131,6 +95,21 @@
 								  <li class="list-group-item">이름 : ${tbean.name}</li>
 								  <li class="list-group-item">포인트 : ${tbean.point}</li>
 								  <li class="list-group-item">프로파일 완성도 : ${tbean.profileRatio}</li>
+								  
+								</ul>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-xs-12">
+							<h3>게시글 정보</h3>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-xs-12">
+						    <ul class="list-group">
+								  <li class="list-group-item">글1: ${thread1} - ${tbean.name} </li>
+								  <li class="list-group-item">글2 : ${thread2} - ${tbean.name}</li>
+								  <li class="list-group-item">글3 : ${thread3} - ${tbean.name}</li>								  
 								</ul>
 							</div>
 						</div>		
@@ -138,7 +117,7 @@
 				</div>
 			</div>
 		</div>
-		<!-- 요청 결과로 testRequest 클래스로부터 돌려받는 상태값 확인 카드 끝 -->
+		<!-- 요청 결과로 TestAjax 클래스로부터 돌려받는 상태값 확인 카드 끝 -->
 
 		 
 	<!--  투표 간단 설문 작성 카드 시작 -->

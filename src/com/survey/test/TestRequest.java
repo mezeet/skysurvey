@@ -55,7 +55,7 @@ public class TestRequest implements Service{
 			// 추가로 리퀘스트 객체에다가 다른 변수도 담아 봅니다.
 			request.setAttribute("thread1","반가워용" );
 			request.setAttribute("thread2","햄볶아용" );
-			request.setAttribute("thread3","사랑해용" );
+			request.setAttribute("thread3","사랑사랑" );
 		
 			// 우리는 리퀘스트 객체를 페이지에 전달해야 하므로, 리퀘스트 객체가 유지되는 페이지 이동방식인 forward 방식을 이용해야 합니다.
 			FInfo.setForward(true);

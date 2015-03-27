@@ -8,7 +8,7 @@
 	String path = (String)request.getContextPath();
     //  만약 프론트 컨트롤러에서 전달받은 main 값이 없다면 기본으로 main.jsp 를 출력
 	String main = (String)request.getAttribute("main");
-  if(main==null) {request.setAttribute("main","/service/main/main.jsp");};
+  if(main==null) {request.setAttribute("main","/service/main/search.jsp");};
 %>
 <c:set var="path" value="<%=request.getContextPath() %>" />
 
@@ -41,7 +41,7 @@
 		<div class="row">
 		<!-- 	본문 좌측 영역 시작 -->
 		
-			<div class="col-xs-12 col-sm-12 col-md-7 col-lg-7">
+			<div class="col-xs-12 col-sm-7 col-md-7 col-lg-7">
 				<jsp:include page="${main}"></jsp:include>
 			</div>
 		
@@ -49,7 +49,7 @@
 		
 		<!-- 	본분 우측 영역 시작 -->
 		
-			<div class="col-sm-4  visible-md visible-lg">
+			<div class="col-sm-4 visible-sm visible-md visible-lg">
 				<div class="row">
 					<div class="col-sm-11 col-sm-push-1">
 						<%@include file="./common/main-sidenav.jsp"%>

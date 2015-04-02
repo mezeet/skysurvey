@@ -143,7 +143,7 @@
 						</div>
 						<!-- id:qselection = 설문 선택모음 -->
 						<div class="row" id="qselection">
-							<div class="col-xs-12" id="area" >
+							<div class="col-xs-12" id="area">
 								
 								<!--	기본 선택지1 시작-->
 								<div class="row">
@@ -158,6 +158,8 @@
 
 							</div>
 						</div>
+<!-- 						이부분 문제 추가 -->
+						
 						<div class="row">
 							<div class="col-xs-1">
 								<a type="button" class="btn btn-default" id="addSelection"><i class="fa fa-plus"></i></a>

@@ -40,12 +40,15 @@
 						</form>
 					</li>
 					<li>
-						<a href="#loginModal" role="button" data-toggle="modal">로그인</a>
+						<a id="header_menu_login" href="#loginModal" role="button" data-toggle="modal">로그인</a>
 					</li>
-					<li><a href="#" class="dropdown-toggle" data-toggle="dropdown"><i
+					<li>
+						<a id="header_menu_logout" role="button" data-toggle="modal">로그아웃</a>
+					</li>
+					<li class="hidden" id="header_menu_profile"><a href="#" class="dropdown-toggle" data-toggle="dropdown"><i
 							class="glyphicon glyphicon-user"></i></a>
 						<ul class="dropdown-menu">
-							<li><a href="#">내 계정</a></li>
+							<li><a href="${path}/view_profile.do">내 계정</a></li>
 							<li><a href="#">내 서베이</a></li>
 							<li><a href="#">내 포인트</a></li>
 							<li><a href="#">로그아웃</a></li>

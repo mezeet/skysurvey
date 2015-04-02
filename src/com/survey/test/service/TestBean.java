@@ -1,4 +1,4 @@
-package com.survey.test;
+package com.survey.test.service;
 
 public class TestBean {
 

@@ -76,7 +76,7 @@ public class FrontController extends HttpServlet {
 		response.setContentType("text/html; charset=utf-8");
 		
 	// 1. 입력받은 URL 에 맞는 서비스를 실행하고 보여줄 페이지와 보여주는 방식을 반환 받는다. 
-		System.out.println("프론트 컨트롤러에 서비스 메소드 실행");
+		System.out.println("프론트 컨트롤러에 서비스 메소드 실행======");
 		
 		String command = request.getServletPath();
 		// 사용자가 요청한 주소 중 제일 마지막 /페이지명.do 글자를 추출한다.

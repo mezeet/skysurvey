@@ -1,4 +1,4 @@
-package com.survey.test;
+package com.survey.test.service;
 
 import java.io.IOException;
 

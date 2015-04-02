@@ -10,6 +10,7 @@
       		<table id="mytable" class="table table-bordred table-striped">
 
             <thead>
+            
              <th>번호</th>
              <th>제목</th>
              <th>작성자</th>

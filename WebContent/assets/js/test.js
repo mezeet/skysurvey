@@ -1,56 +1,58 @@
-/**
- * Test 페이지에서 사용할 스크립트. #addSelection 버튼 클릭 시 qselection.html 조각을 ajax 로 load 한 뒤 .qselection 에다가 집어 넣는다.
- */
-
-$(document).ready(function(){
-
-	//	선택추가 버튼을 클릭 시 아작스 요청으로 html 페이지 조각을 가져와 삽입합니다.
-	$('#addSelection').click(function() {
-	
-		$.ajax({      
-	    type:"post",                // 보내는 방식
-	    url:"./qselection.html",    // 요청주소
-	    dataType:'html',            // 받을 자료 종류, html 은 생략가능?
-	    
-	  	success:function(args){	  			
-	  		$("#qselection > #area").append(args);
-	  		}, // 성공했을때 실행할 콜백, args 에는 받아온 결과내용이 들어 있다.
-	      
-	    error:function(e){  
-	        alert(e.responseText);  
-	    	}// 실패했을때 실행할 콜백, e는 오류 객체이고 responseText 로 결과내용을 출력
-		}); 	
-	});
-	
-	//  항목 추가 버튼이 있는 span 요소에다가 on 을 걸어서
-	// 문서가 로드 된 이후에 ajax 로 삽입 된 항목에 있는 버튼도 ajax 작동을 할 수 있게 해준다.
-	// 즉, 새로 생성된 html 요소를 jquery 돔 요소로 자동 인식시키는 방법이다.
-	$('#qselection > #area').on( "click", 'span' ,function() {
-		$(this).parent().parent().parent().remove();
-	});
-	
-	// 버튼이 클릭 시 아작스 요청하고 폼에 입력한 자료를 전달합니다.
-	$('#ajaxbutton').click(function(){
-		
-
-		// url 뒤에 ?키=값&키=값 .. 요렇게 안쓰기 위해서 폼에 담긴 값을 직렬화(serialize) 시킵니다.
-		var formData = $("#testForm").serialize();
-		
-		
-		$.ajax({      
-		    type:"post",                // 보내는 방식
-		    url:"TestAjax",    // 요청주소
-		    dataType:'json',            // 받을 자료 종류, html 은 생략가능?
-		    params: formData,          // 서버로 보낼 자료
-		  	success:function(args){ 	
-		  		alert(args);
-		  				$('.state').append(args.state);
-		  		}, // 성공했을때 실행할 콜백, args 에는 받아온 결과내용이 들어 있다.
-		      
-		    error:function(e){  
-		        alert(e.responseText);  
-		    	}// 실패했을때 실행할 콜백, e는 오류 객체이고 responseText 로 결과내용을 출력
-		}); 
-	});
-
-}); 
+///**
+// * Test 페이지에서 사용할 스크립트. #addSelection 버튼 클릭 시 qselection.html 조각을 ajax 로 load 한 뒤 .qselection 에다가 집어 넣는다.
+// */
+//
+//$(document).ready(function(){
+//
+//	//	선택추가 버튼을 클릭 시 아작스 요청으로 html 페이지 조각을 가져와 삽입합니다.
+//	$('#addSelection').click(function() {
+//	
+//		$.ajax({      
+//	    type:"post",                // 보내는 방식
+//	    url:"./qselection.html",    // 요청주소
+//	    dataType:'html',            // 받을 자료 종류, html 은 생략가능?
+//	    
+//	  	success:function(args){	  			
+//	  		$("#qselection > #area").append(args);
+//	  		}, // 성공했을때 실행할 콜백, args 에는 받아온 결과내용이 들어 있다.
+//	      
+//	    error:function(e){  
+//	        alert(e.responseText);  
+//	    	}// 실패했을때 실행할 콜백, e는 오류 객체이고 responseText 로 결과내용을 출력
+//		}); 	
+//	});
+//	
+//	//  항목 추가 버튼이 있는 span 요소에다가 on 을 걸어서
+//	// 문서가 로드 된 이후에 ajax 로 삽입 된 항목에 있는 버튼도 ajax 작동을 할 수 있게 해준다.
+//	// 즉, 새로 생성된 html 요소를 jquery 돔 요소로 자동 인식시키는 방법이다.
+//	$('#qselection > #area').on( "click", 'span' ,function() {
+//		$(this).parent().parent().parent().remove();
+//	});
+//	
+//	// 버튼이 클릭 시 아작스 요청하고 폼에 입력한 자료를 전달합니다.
+//	$('#ajaxbutton').click(function(){
+//		
+//
+//		// url 뒤에 ?키=값&키=값 .. 요렇게 안쓰기 위해서 폼에 담긴 값을 직렬화(serialize) 시킵니다.
+//		var formData = $("#testForm").serialize();
+//		
+//		
+//		$.ajax({      
+//		    type:"post",                // 보내는 방식
+//		    url:"TestAjax",    // 요청주소
+//		 // url:"TestAjax?"+formData,  // 직접 url 로 보낼 수도 있고,
+//		    dataType:'json',            // 받을 자료 종류, html 은 생략가능?
+//		    data: formData,            // 서버로 받을 자료
+//		 // params: formData,          // 주소창을 안쓸 경우 안먹는다. 한글처리되 안된다.
+//		  	success:function(args){ 	
+//		  		alert(args);
+//		  				$('.state').append(args.state);
+//		  		}, // 성공했을때 실행할 콜백, args 에는 받아온 결과내용이 들어 있다.
+//		      
+//		    error:function(e){  
+//		        alert(e.responseText);  
+//		    	}// 실패했을때 실행할 콜백, e는 오류 객체이고 responseText 로 결과내용을 출력
+//		}); 
+//	});
+//
+//}); 

@@ -15,4 +15,15 @@
       <param-value>/WEB-INF/commandURI.properties</param-value>
     </init-param>
   </servlet>
+  <servlet>
+    <servlet-name>DaoProviderInit</servlet-name>
+    <servlet-class>
+  	 	com.survey.common.DaoProviderInit
+  	</servlet-class>
+    <init-param>
+      <param-name>dbms</param-name>
+      <param-value>oracle</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
 </web-app>

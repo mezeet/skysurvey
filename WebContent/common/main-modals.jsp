@@ -16,18 +16,18 @@
 				 </h2>
 			</div>
 			<div class="modal-body">
-				<form class="form col-sm-12 center-block">
-				<div class="alert alert-warning"><strong>주의!</strong>아이디나 암호가 맞지 않습니다.</div>
+				<form class="form col-sm-12 center-block" id="login_form" method="post" name="login_form">
+					<div class="alert alert-warning hide" id="login_form_alert"><strong>주의!</strong>아이디나 암호가 맞지 않습니다.</div>
 					<div class="form-group">
 						<input type="text" class="form-control input-lg"
-							placeholder="이메일">
+							placeholder="아이디" name="loginid" id="loginid">
 					</div>
 					<div class="form-group">
 						<input type="password" class="form-control input-lg"
-							placeholder="암호">
+							placeholder="암호" name="loginpassword" id="loginpassword">
 					</div>
 					<div class="form-group">
-						<button class="btn btn-primary btn-lg btn-block">로그인</button>
+						<a class="btn btn-primary btn-lg btn-block" id="login_submit">로그인</a>
 						<span class="pull-right">
 							<a href="#getPasswordModal" role="button" data-toggle="modal" data-dismiss="modal">비밀번호 찾기</a>
 							<!-- data-toggle 과 data-dismiss 를 동시에 넣으면 현재 모달이 닫히고 새 모달이 열린다. -->

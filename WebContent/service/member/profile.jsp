@@ -27,12 +27,22 @@
 				    
 			    <!-- Text input-->
 					<div class="form-group">
-					  <label class="col-lg-2 control-label" for="textinput">성명</label>
+					  <label class="col-lg-2 control-label" for="textinput">성</label>
 					  <div class="col-lg-10">
 					    <input id="textinput" name="textinput" type="text" placeholder="성" class="form-control">
 					    <p class="help-block">예) 김시습 이라면 김</p>
 					  </div>
 					</div>
+					
+					<!-- Text input-->
+					<div class="form-group">
+					  <label class="col-lg-2 control-label" for="textinput">이름</label>
+					  <div class="col-lg-10">
+					    <input id="textinput" name="textinput" type="text" placeholder="이름" class="form-control">
+					    <p class="help-block">예) 김시습 이라면 시습</p>
+					  </div>
+					</div>
+					
 
 					<!-- Multiple Radios (inline) -->
 					<div class="form-group">

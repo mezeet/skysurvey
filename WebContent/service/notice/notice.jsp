@@ -3,7 +3,7 @@
 	
 		<!-- 게시글  하나 보기 영역 시작 -->
     <div class="row panel">
-      <div class="col-md-12">
+      <div class="col-xs-12">
       	<h4>공지 게시판</h4>
       	<div class="table-responsive">
 
@@ -50,7 +50,7 @@
 	
 		<!-- 게시글  수정 하기 영역 시작 -->
     <div class="row panel">
-      <div class="col-md-12">
+      <div class="col-xs-12">
       	<h4>공지 게시판</h4>
       	<div class="table-responsive">
 
@@ -80,31 +80,25 @@
 				    </tr>
 				
 			    </tbody>        
-					</table>
-					</div>
-					<div class="clearfix">
-						
-							<input type="date" class="form-control " value="2015-05-15">
-							<input type="date" class="form-control " value="2015-05-15">
+				</table>
+			</div>
+			<div class="clearfix">
+				<input type="date" class="form-control " value="2015-05-15">
+				<input type="date" class="form-control " value="2015-05-15">
+			</div>
+			<div class="clearfix"></div>
 
-						</div>
-
-						<div class="clearfix"></div>
-
-						<ul class="pagination pull-right">
-							<li><a class="btn btn-primary"href="#"><i class="fa fa-home fa-fw"></i>&nbsp; 글 수정취소</a></a></li>
-						  <li><a class="btn btn-primary"href="#"><i class="fa fa-home fa-fw"></i>&nbsp; 글 수정완료</a></a></li>
-						</ul>
-
-
-           </div>
-        	</div>
-				</div>
-				<!-- 게시글 수정 하기 영역 끝 -->
+				<ul class="pagination pull-right">
+					<li><a class="btn btn-primary"href="#"><i class="fa fa-home fa-fw"></i>&nbsp; 글 수정취소</a></a></li>
+				  <li><a class="btn btn-primary"href="#"><i class="fa fa-home fa-fw"></i>&nbsp; 글 수정완료</a></a></li>
+				</ul>
+			</div>
+     </div>
+		<!-- 게시글 수정 하기 영역 끝 -->
 				
-			<!-- 게시글  수정 하기 영역 시작 -->
+		<!-- 게시글  수정 하기 영역 시작 -->
     <div class="row panel">
-      <div class="col-md-12">
+      <div class="col-xs-12">
       	<h4>공지 게시판</h4>
       	<div class="table-responsive">
 
@@ -153,12 +147,12 @@
 
            </div>
         	</div>
-				</div>
+
 				<!-- 게시글 작성 하기 영역 끝 -->
 	
 		<!-- 게시글  목록 보기 영역 시작 -->
     <div class="row panel">
-      <div class="col-md-12">
+      <div class="col-xs-12">
       	<h4>공지 게시판</h4>
       	<div class="table-responsive">
 
@@ -285,9 +279,6 @@
   </div>
       <!-- /.modal-dialog --> 
     </div>
-    
-    
-    
     <div class="modal fade" id="delete" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true">
       <div class="modal-dialog">
     <div class="modal-content">

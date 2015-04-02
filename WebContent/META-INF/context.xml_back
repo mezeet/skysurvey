@@ -8,7 +8,7 @@
   password="암호"
   driverClassName="oracle.jdbc.driver.OracleDriver"
   factory="org.apache.tomcat.dbcp.dbcp.BasicDataSourceFactory"
-  url="jdbc:oracle:thin:@접속주소:orcl"
+  url="jdbc:oracle:thin:@주소:포트:orcl"
   maxActive="500"
   maxIdle="100"/>
 </Context>

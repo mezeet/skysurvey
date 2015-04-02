@@ -43,13 +43,13 @@
 			<c:choose>
 				<c:when test="${main !='/service/member/profile.jsp' }">
 					<div class="col-xs-12 col-sm-12 col-md-7 col-lg-7">
-									<jsp:include page="${main}"></jsp:include>
-			</div>
+						<jsp:include page="${main}"></jsp:include>
+					</div>
 				</c:when>
 				<c:when test="${main =='/service/member/profile.jsp' }">
 					<div class="col-xs-12">
-									<jsp:include page="${main}"></jsp:include>
-			</div>
+						<jsp:include page="${main}"></jsp:include>
+					</div>
 				</c:when>
 			</c:choose>
 
@@ -58,7 +58,7 @@
 		
 		<!-- 	본분 우측 영역 시작 -->
 		<c:if test="${main !='/service/member/profile.jsp' }">
-			<div class="col-sm-4  visible-md visible-lg">
+			<div class="col-sm-4 visible-md visible-lg">
 				<div class="row">
 					<div class="col-sm-11 col-sm-push-1">
 						<%@include file="./common/main-sidenav.jsp"%>

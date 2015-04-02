@@ -21,22 +21,22 @@
 								<button type="button" class="close" aria-hidden="true">×</button>
 							</div>
 						</div>
-						<div class="row" >
-							<div class="col-xs-12">
+<!-- 				========================qselection, area 부분======================== -->
+						<div class="row" id="qselection">
+							<div class="col-xs-12" id="area">
 								<div class="row">
 									<div class="col-xs-12">
 										<div class="input-group">
-										  <span class="input-group-addon"><i class="fa fa-check"></i></span>
+										  <div class="input-group-addon"><i class="fa fa-check"></i></div>
 										  <input type="text" class="form-control"  placeholder="질문 제목">
-										  <span class="input-group-addon btn">
-										  <i class="fa fa-camera"></i></span>
+										  <label class="input-group-addon btn"><i class="fa fa-camera"></i></label>
 										</div>
 									</div>
 								</div>
 								<div class="row">
 									<div class="col-xs-12">
 										<div class="input-group">
-										  <span class="input-group-addon"> 1 </span>
+										  <div class="input-group-addon bogi"> 1 </div>
 										  <input type="text" class="form-control"  placeholder="선택지 입력">
 										  <span class="input-group-addon btn"> <i class="fa fa-times"></i> </span>
 										</div>
@@ -45,7 +45,7 @@
 								<div class="row">
 									<div class="col-xs-12">
 										<div class="input-group">
-										  <span class="input-group-addon"> 2 </span>
+										  <div class="input-group-addon bogi"> 2 </div>
 										  <input type="text" class="form-control"  placeholder="선택지 입력">
 										  <span class="input-group-addon btn"> <i class="fa fa-times"></i> </span>
 										</div>
@@ -54,7 +54,7 @@
 								<div class="row">
 									<div class="col-xs-12">
 										<div class="input-group">
-										  <span class="input-group-addon"> 3 </span>
+										  <div class="input-group-addon bogi"> 3 </div>
 										  <input type="text" class="form-control"  placeholder="선택지 입력">
 										  <span class="input-group-addon btn"> <i class="fa fa-times"></i> </span>
 										</div>
@@ -63,7 +63,7 @@
 								<div class="row">
 									<div class="col-xs-12">
 										<div class="input-group">
-										  <span class="input-group-addon"> 4 </span>
+										  <div class="input-group-addon bogi"> 4 </div>
 										  <input type="text" class="form-control"  placeholder="선택지 입력">
 										  <span class="input-group-addon btn"> <i class="fa fa-times"></i> </span>
 										</div>
@@ -73,7 +73,8 @@
 						</div>
 						<div class="row">
 							<div class="col-xs-1">
-								<button class="btn btn-default"><i class="fa fa-plus"></i></button>
+<!-- 				========================addSelection 부분======================== -->
+								<a type="button" class="btn btn-default" id="addSelection"><i class="fa fa-plus"></i></a>
 							</div>
 							<div class="col-xs-8">
 								<div class="btn-group" data-toggle="buttons">
@@ -523,7 +524,7 @@
 								  <a type="button" class="btn btn-default opappraiser"><i class="fa fa-star"></i>&nbsp; 평가</a>
 								  <a type="button" class="btn btn-default opversus"><i class="fa fa-thumbs-up"></i>&nbsp; 대결</a>
 								  <a type="button" class="btn btn-default active opevery"><i class="fa fa-list-alt"></i>&nbsp; 복합</a>								
-<!-- 						    <input type="radio" name="options" class="btn btn-default active opevery" id="option5"><i class="fa fa-list-alt"></i>&nbsp; 복합 -->
+<!--기존것: 혹시나해서 살려둠	    <input type="radio" name="options" class="btn btn-default active opevery" id="option5"><i class="fa fa-list-alt"></i>&nbsp; 복합 -->
 								</div>
 							</div>
 							<div class="col-xs-1">
@@ -543,8 +544,8 @@
 						<!-- 	질문 영역 시작-->
 						
 						<!--	질문 1 시작 -->
-						<div class="row1">
-							<div class="col-xs-12">
+						<div class="row qselection" id="qselection">
+							<div class="col-xs-12 area">
 								<div class="row">
 									<div class="col-xs-12">
 										<div class="input-group">
@@ -558,7 +559,7 @@
 								<div class="row">
 									<div class="col-xs-12">
 										<div class="input-group">
-										  <span class="input-group-addon"> 1 </span>
+										  <div class="input-group-addon bogi"> 1 </div>
 										  <input type="text" class="form-control"  placeholder="선택지 입력">
 										  <span class="input-group-addon btn"> <i class="fa fa-times"></i> </span>
 										</div>
@@ -567,7 +568,7 @@
 								<div class="row">
 									<div class="col-xs-12">
 										<div class="input-group">
-										  <span class="input-group-addon"> 2 </span>
+										  <div class="input-group-addon bogi"> 2 </div>
 										  <input type="text" class="form-control"  placeholder="선택지 입력">
 										  <span class="input-group-addon btn"> <i class="fa fa-times"></i> </span>
 										</div>
@@ -576,7 +577,7 @@
 								<div class="row">
 									<div class="col-xs-12">
 										<div class="input-group">
-										  <span class="input-group-addon"> 3 </span>
+										  <div class="input-group-addon bogi"> 3 </div>
 										  <input type="text" class="form-control"  placeholder="선택지 입력">
 										  <span class="input-group-addon btn"> <i class="fa fa-times"></i> </span>
 										</div>
@@ -585,7 +586,7 @@
 								<div class="row">
 									<div class="col-xs-12">
 										<div class="input-group">
-										  <span class="input-group-addon"> 4 </span>
+										  <div class="input-group-addon bogi"> 4 </div>
 										  <input type="text" class="form-control"  placeholder="선택지 입력">
 										  <span class="input-group-addon btn"> <i class="fa fa-times"></i> </span>
 										</div>
@@ -598,6 +599,8 @@
 								<button class="btn btn-default"><i class="fa fa-plus"></i></button>
 							</div>
 						</div>
+						
+<!-- 					================질문1 구분선================ -->
 						<div class="row">
 							<div class="col-xs-12">
 								<hr>

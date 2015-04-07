@@ -4,11 +4,11 @@
  <Resource name="jdbc/OracleDB"
   auth="Container"
   type="javax.sql.DataSource"
-  username="아이디"
-  password="암호"
+  username="skysurvey"
+  password="sky1234"
   driverClassName="oracle.jdbc.driver.OracleDriver"
   factory="org.apache.tomcat.dbcp.dbcp.BasicDataSourceFactory"
-  url="jdbc:oracle:thin:@주소:포트:orcl"
+  url="jdbc:oracle:thin:@211.183.7.63:1521:orcl"
   maxActive="500"
   maxIdle="100"/>
 </Context>

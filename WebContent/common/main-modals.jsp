@@ -37,7 +37,7 @@
 							<div class="checkbox">
   							<label>
     							<input type="checkbox" value="">
-     							입력한 정보 기억하기
+     									입력한 정보 기억하기
   							</label>
 							</div>
 						</span>
@@ -45,9 +45,9 @@
 				</form>
 			</div>
 			<div class="modal-footer">
-<!-- 				<div class="col-sm-12"> -->
-<!-- 					<button class="btn" data-dismiss="modal" aria-hidden="true">취소</button> -->
-<!-- 				</div> -->
+				<!-- <div class="col-sm-12"> -->
+				<!-- 		<button class="btn" data-dismiss="modal" aria-hidden="true">취소</button> -->
+				<!-- </div> -->
 			</div>
 		</div>
 	</div>

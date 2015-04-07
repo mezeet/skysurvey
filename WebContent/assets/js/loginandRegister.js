@@ -52,7 +52,7 @@ $(document).ready(function(){
 	    url:"Login", // 요청주소
 	    dataType:'json',  // 받을 자료 종류, json 이다.
 	  	success:function(member){	  			
-	  				alert(member);
+	  				alert(member.userid);
 	  		
 	  				// 로그인체크 서블릿에서 json 형태의 member 객체를 받는다.
 	  		       // 만약 isUser 가 true 이면

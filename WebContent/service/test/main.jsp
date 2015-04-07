@@ -90,11 +90,12 @@
 						<div class="row">
 							<div class="col-xs-12">
 						    <ul class="list-group">
-								  <li class="list-group-item">번호 : ${tbean.userNo}</li>
-								  <li class="list-group-item">아이디 : ${tbean.id}</li>
+								  <li class="list-group-item">번호 : ${member.userid}</li>
+								  <li class="list-group-item">아이디 : ${member.no}</li>
 								  <li class="list-group-item">이름 : ${tbean.name}</li>
 								  <li class="list-group-item">포인트 : ${tbean.point}</li>
 								  <li class="list-group-item">프로파일 완성도 : ${tbean.profileRatio}</li>
+								  <li class="list-group-item">프로파일 완성도 : ${address.detail}</li>
 								  
 								</ul>
 							</div>

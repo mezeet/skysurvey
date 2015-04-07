@@ -49,9 +49,11 @@ $(document).ready(function(){
 		$.ajax({      
 	    type:"post",      // 보내는 방식
 	    data: formData,   // 보내는 자료 - 직렬화된 폼 자료
-	    url:"LoginCheck", // 요청주소
+	    url:"Login", // 요청주소
 	    dataType:'json',  // 받을 자료 종류, json 이다.
 	  	success:function(member){	  			
+	  				alert(member);
+	  		
 	  				// 로그인체크 서블릿에서 json 형태의 member 객체를 받는다.
 	  		       // 만약 isUser 가 true 이면
 	  			if(member.isUser==true){

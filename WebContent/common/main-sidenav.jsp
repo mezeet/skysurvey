@@ -3,7 +3,7 @@
 <script src="./js/jquery-1.11.2.min.js" type="text/javascript"></script>
 
 
-  <div class="row hidden" id="user_profile">
+  <div class="row" id="user_profile">
   	<div class="col-xs-12">
   		<div class="row well">
   			<div class="col-xs-12">	
@@ -13,7 +13,7 @@
 							class="media-object" src="//placehold.it/80">
 						</a>
 						<div class="media-body">
-							<h4 class="media-heading">사용자 id</h4>
+							<h4 class="media-heading">${sessioin.id}</h4>
 							<p>
 								<a class="btn btn-block btn-default">1000 포인트</a>
 							</p>
@@ -48,15 +48,11 @@
 					</div>
 					<div class="panel-body" id="panel-body">
 				    <table class="table table-striped" id="shim">
-	            <tr>
-	                <td>포인트 지급 방식 변경 안내</td>
+				    	<c:forEach var="notices" items="notice" begin="0" end="5" step="1">
+				    	<tr>
+	                <td>${notice.title}</td>
 	            </tr>
-	            <tr>
-	                <td>결제 시 유의 사항 안내</td>
-	            </tr>
-	            <tr>
-	                <td>기업 연계 의뢰 안내</td>
-	            </tr>
+							</c:forEach>
 				    </table>
 					</div>
 				</div>

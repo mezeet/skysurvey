@@ -1,62 +1,41 @@
 /**
- * Test 페이지에서 사용할 스크립트. #addSelection 버튼 클릭 시 qselection.html 조각을 ajax 로 load 한 뒤 .qselection 에다가 집어 넣는다.
+ * 로그인/로그아웃 모달창 클릭시 요청/처리될 AJAX 요청
+ * 회원가입 폼 전송시 요청/처리될 AJAX 요청
  */
 
+// 문서 내에 모든 요소가 불러와서 준비가 된 상태에서 실행
 $(document).ready(function(){
 	
-	//	선택추가 버튼을 클릭 시 아작스 요청으로 html 페이지 조각을 가져와 삽입합니다.
+	//	로그인 전송 버튼이 클릭될 때!
 	$('#login_submit').click(function() {
 		
 	// 폼 직렬화(스트림을 목적으로 객체를 변환)
 	var formData = $("#login_form").serialize();
 		
-			alert(formData);
-		
+	    // 전송 폼 값 확인
+		alert(formData);
+			
+		// 아이디/암호 체크하는 서블릿으로 폼 내용을 전송 및 결과값 수신
 		$.ajax({      
 	    type:"post",      // 보내는 방식
 	    data: formData,   // 보내는 자료 - 직렬화된 폼 자료
 	    url:"Login", // 요청주소
-	    dataType:'json',  // 받을 자료 종류, json 이다.
+	    dataType:'text',  // 받을 자료 종류, json 이다.
 	  	success:function(result){	  			
-	  				alert(result);
+	  		
+	  			// 결과 값 확인
+	  		alert(result);
 	  		       
-	  			 if(result=""){
-	  				 
-	  			 		}
+	  			// 로그인 서블릿에서 아이디와 암호를 체크한 결과가 이상하면
+  			if(result=="noUser" || result=="wrongPassword"){
+  					// 경고문구 숨김을 해체한다.
+  				$('login_form_alert').removeClass('hide');
+  			 	}
 	  				
-	  				
-	  				
-	  				// 만약 isUser 가 true 이면
-	  			if(result==""){
-	  				
-	  					// 숨겨진 login 메뉴 숨김해제
-	  				$('#header_menu_profile').removeClass('hidden');
-	  				$('#loginModal').modal('hide');
-	  				
-	  				   // 사용자 id 숨김 해제 및 c 태그로 도배된 기존 내용을 지우고
-	  				  // 현재 받은 member json 값을 넣은 html 조각을 넣어준다. 
-	  				
-	  				$('#user_profile').removeClass('hidden');
-	  				var imgsrc ="http://placehold.it/80";
-	  				var point ="1000";
-	  				var id = member.id;
-	  				var completerate ="60";
-
-	  				makeUserProfile(imgsrc,id,point,completerate);
-  				
-	  				
-	  				
-	  				  // 회원가입 영역 숨기기
-	  				$('#registration_form').addClass('hidden');
-	  				
-	  				
-	  				   // 로그인 모달창과 헤더 로그인 버튼 숨기기
-	  				$('#loginModal').modal('hide');
-	  				$('#header_menu_login').addClass('hidden');
-
-	  			}else{	
-	  				$('#').addClass('hidden');
-	  				}
+	  			// 로그인 서블릿 아이디 암호체크 통과하여 사용자임이 증명 되면
+	  		if(result=="isUser"){
+	  			window.location.replace("login.do");
+	  			}
 	  		
 	  		}, // 성공했을때 실행할 콜백, args 에는 받아온 결과내용이 들어 있다.
 	      

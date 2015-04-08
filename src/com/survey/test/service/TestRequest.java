@@ -12,8 +12,8 @@ import org.javalite.activejdbc.LazyList;
 
 import com.survey.controller.ForwardInfo;
 import com.survey.controller.Service;
-import com.survey.login.Address;
-import com.survey.login.Member;
+import com.survey.model.Cohabitant;
+import com.survey.model.Member;
 
 // 인터페이스 service의 process 메소드를 구현하는 concrete 클래스를 만들고
 // 메소드 처리내용을 구현한다.
@@ -53,21 +53,29 @@ public class TestRequest implements Service{
 		// 입력한 id 와 매칭되는 id 가 있는지 검색해서
 		// 없으면 false 리턴
 		Member m = Member.findFirst("userid=?",id);
-		Address address = Address.findFirst("member_id=?",2);
-		List<Address> a = m.get(Address.class,"member_id=?", m.get("no"));
-		System.out.println(address);
-		System.out.println(m);
-		System.out.println(a);
-		System.out.println(a.get(0));
-		a.get(0).set("detail","세뿡세뿡").save();
-		System.out.println(a.get(0));
-		Address ad = new Address();
+		System.out.println( "멤버 : "+m);
+				
+		Cohabitant a = Cohabitant.findById(m.get("no"));
+		// 부모 멤버와 자식 address 관계를 join 한다.
+		System.out.println("주소 : "+a);
+		
+		m.add(a);
+		System.out.println("멤버에 자식 조인 : "+m);
+		
+		List<Cohabitant> addresses = m.getAll(Cohabitant.class);
+		System.out.println("현재 멤버와 연관된 주소 목록(List) : "+addresses);
+		
+		addresses.get(0).set("detail","세뿡세뿡").save();
+		
+		Cohabitant ad = new Cohabitant();
 		ad.set("no",3);
 		ad.set("sido",2);
 		ad.set("detail","몰라썅");
 		ad.set("postno","222-787");
 		ad.set("member_id","1");
 		ad.saveIt();
+		
+		
 		
 		// 커넥션 닫기
 		Base.close();
@@ -82,7 +90,7 @@ public class TestRequest implements Service{
 			// toMap() 으로 보내면 JSTL 에서 그냥 쓸 수 있다.
 			//  안하면 m 객체는 get("id") 형태밖에 없어서 getID() 를 쓰는 JSTL 은 먹히지 않는다. 
 			request.setAttribute("member",m.toMap() );
-			request.setAttribute("address",address.toMap());
+			request.setAttribute("address",addresses.get(0).toMap());
 			tbean.setPassword("");
 			// 그리고 tbean 을 request 객체에 tbean 이라는 변수에 담습니다. 
 			request.setAttribute("tbean", tbean);

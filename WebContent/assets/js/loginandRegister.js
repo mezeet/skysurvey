@@ -3,60 +3,31 @@
  */
 
 $(document).ready(function(){
-
-	// 회원 정보 값을 주면 회원 영역 html 을 만들어 반환하는 함수
-	function makeUserProfile(imgsrc,id,point,completerate){
-		
-		alert(id);
-		
-			$("#user_media").empty();
-			
-			var partial ="<a class='thumbnail pull-left' href='#'>";
-			partial +="<img class='media-object' src='"+imgsrc+"'>";
-			partial +="</a>";
-			partial +="<div class='media-body'>";
-			partial +="<h4 class='media-heading'>"+id+"</h4>";
-			partial +="<p>";
-			partial +="<a class='btn btn-block btn-default'>"+point+"</a>";
-			partial +="</p>";
-			partial +="</div>";
-			partial +="</div>";
-			
-			alert(partial);
-			
-			$('#user_media').append(partial);
-			
-			$("#user_progress").empty();
-			
-			var partial ="<div class='progress-bar progress-bar-info' style='width:"+completerate+"%'>프로필 작성 "+completerate+"완료</div>";
-		
-		
-			$('#user_progress').append(partial);
-	}
 	
 	//	선택추가 버튼을 클릭 시 아작스 요청으로 html 페이지 조각을 가져와 삽입합니다.
 	$('#login_submit').click(function() {
-
-		/*
-		 *  왜인지 모르겠지만 params 로 직렬화된 form 전송이 안먹는다.
-		 * data 로 보내니 작동을 한다. 둘은 같은 건데 왜 다르게 작동하는 지를 모르겠다.
-		 */
 		
+	// 폼 직렬화(스트림을 목적으로 객체를 변환)
 	var formData = $("#login_form").serialize();
-			
-		alert(formData);
+		
+			alert(formData);
 		
 		$.ajax({      
 	    type:"post",      // 보내는 방식
 	    data: formData,   // 보내는 자료 - 직렬화된 폼 자료
 	    url:"Login", // 요청주소
 	    dataType:'json',  // 받을 자료 종류, json 이다.
-	  	success:function(member){	  			
-	  				alert(member.userid);
-	  		
-	  				// 로그인체크 서블릿에서 json 형태의 member 객체를 받는다.
-	  		       // 만약 isUser 가 true 이면
-	  			if(member.isUser==true){
+	  	success:function(result){	  			
+	  				alert(result);
+	  		       
+	  			 if(result=""){
+	  				 
+	  			 		}
+	  				
+	  				
+	  				
+	  				// 만약 isUser 가 true 이면
+	  			if(result==""){
 	  				
 	  					// 숨겨진 login 메뉴 숨김해제
 	  				$('#header_menu_profile').removeClass('hidden');
@@ -127,3 +98,33 @@ $(document).ready(function(){
 	});
 
 }); 
+
+// 회원 정보 값을 주면 회원 영역 html 을 만들어 반환하는 함수
+function makeUserProfile(imgsrc,id,point,completerate){
+	
+	alert(id);
+	
+		$("#user_media").empty();
+		
+		var partial ="<a class='thumbnail pull-left' href='#'>";
+		partial +="<img class='media-object' src='"+imgsrc+"'>";
+		partial +="</a>";
+		partial +="<div class='media-body'>";
+		partial +="<h4 class='media-heading'>"+id+"</h4>";
+		partial +="<p>";
+		partial +="<a class='btn btn-block btn-default'>"+point+"</a>";
+		partial +="</p>";
+		partial +="</div>";
+		partial +="</div>";
+		
+		alert(partial);
+		
+		$('#user_media').append(partial);
+		
+		$("#user_progress").empty();
+		
+		var partial ="<div class='progress-bar progress-bar-info' style='width:"+completerate+"%'>프로필 작성 "+completerate+"완료</div>";
+	
+	
+		$('#user_progress').append(partial);
+}

@@ -10,16 +10,20 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.javalite.activejdbc.Base;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.google.gson.Gson;
-import com.survey.jdbc.JdbcUtil;
+import com.survey.model.Member;
 
 /**
  * Servlet implementation class Login
+ *   로그인 창에서 전송된 아이디와 암호를 확인한 후,
+ *   성공할 경우 세션객체에 사용자 정보를 기록 하고 true 를 ajax 로 돌려보낸다.
+ *   실패할 경우 아무것도 하지 않고, false 를 ajax 로 돌려보낸다.
  */
 @WebServlet("/Login")
 public class Login extends HttpServlet {
@@ -27,40 +31,64 @@ public class Login extends HttpServlet {
        
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		// activeJdbc 에 toJson 메소드가 있어서 Gson 을 현재 안씀.
-		// Gson gson = new Gson();
-		Boolean isUser=false;
-		Logger logger = LoggerFactory.getLogger(Login.class);
-		
+// 1. 로그인 창에서 전송된 아이디와 암호를 확인한 후,
+
+		// 전송된 폼 값을 가져와서 변수에 담는다.
 		String id = request.getParameter("loginid");
 		String password = request.getParameter("loginpassword");	
 		
+		// 직접 드라이버로 연결... 은 지양한다.
 		//Base.open("oracle.jdbc.driver.OracleDriver", "jdbc:oracle:thin:@211.183.7.63:1521:orcl", "skysurvey","sky1234");
-		// context 로 등록한 jndi 에서 
+
+		// context 로 등록한 jndi 에서 db 연결을 한다. 
 		Base.open("java:comp/env/jdbc/OracleDB");
 
-		// 입력한 id 와 매칭되는 id 가 있는지 검색해서
-		// 없으면 false 리턴
+		// ActiveJDBC Member 객체로 해당 아이디와 일치하는 사용자가 있는지 확인한다.
 		Member m = Member.findFirst("userid=?",id);
-		
-		System.out.println(m);
+				
 		// 커넥션 닫기
 		Base.close();
+
+// 2. 실패할 경우 아무것도 하지 않고, false 를 ajax 로 돌려보낸다.
 		
-		// 만약 m 값이 false.. 즉 폼에 입력한 id 값과 일치하는 id 가 테이블에 없으면
+		// 회원 테이블 쿼리의 값이 false 라면 
 		if(m.equals(false)){
-			// isUser 값을 초기 값인 false 로 그대로 AJAX 리턴한다.
+			
+			// AJAX에 nouser 값을 리턴한다.
+			String json = "noUser";
 			response.setContentType("application/json");
 			response.setCharacterEncoding("UTF-8");
-			response.getWriter().write(m.toJson(isUser)); 
-		// m 값이 false 가 아니면. 즉 폼에 입력한 id 값과 일치하는 id가 테이블에 있으면.
+			response.getWriter().write(json); 
+
+		// 회원 아이디는 있지만, 암호가 일치 하지 않으면!!
+		}else if(!m.get("password").equals(password)){
+			
+			// AJAX에 wrongpassword 값을 리턴한다.
+			String json = "wrongPassword";
+			response.setContentType("application/json");
+			response.setCharacterEncoding("UTF-8");
+			response.getWriter().write(json); 
+			
+// 3. 성공할 경우 세션객체에 사용자 정보를 기록 하고 true 를 ajax 로 돌려보낸다.
+			
+		// 해당 아이디의 회원이 있고, 암호까지 일치한다면!!!
 		}else{
-			// isUser 값을 true 로 수정한 뒤 AJAX 에 리턴한다.
-			isUser=true;
-      System.out.println(m.toJson(true));
+
+			// 세션 객체에 사용자의 고유번호(id), 사용자 id(userid), 
+			// 프로필 작성 완료도(completerate), 포인트(point)
+			// 
+			HttpSession session = request.getSession();
+			session.setAttribute("userid",m.get("userid"));
+			session.setAttribute("completerate", m.get("completerate"));
+			session.setAttribute("point", m.get("point"));
+			session.setAttribute("imgsrc", m.get(""));
+			
+			
+			// AJAX 에 isUser 값을 리턴한다.
+			String json = "isUser";
 			response.setContentType("application/json");
 			response.setCharacterEncoding("UTF-8");
-			response.getWriter().write(m.toJson(true));
+			response.getWriter().write(json);
 		}
 		
 	}

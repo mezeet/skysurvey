@@ -13,11 +13,14 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.javalite.activejdbc.Base;
+import org.javalite.activejdbc.LazyList;
+import org.javalite.activejdbc.Model;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.google.gson.Gson;
 import com.survey.model.Member;
+import com.survey.model.Pointlog;
 
 /**
  * Servlet implementation class Login
@@ -44,15 +47,21 @@ public class Login extends HttpServlet {
 		Base.open("java:comp/env/jdbc/OracleDB");
 
 		// ActiveJDBC Member 객체로 해당 아이디와 일치하는 사용자가 있는지 확인한다.
-		Member m = Member.findFirst("userid=?",id);
-				
-		// 커넥션 닫기
+		Member member = Member.findFirst("userid=?",id);
+	   // 선택된 사용자 id 와 일치하는 항목을 pointlog 테이블에서 읽어와 목록화 한다. 
+		LazyList<Pointlog> pointlogs = member.getAll(Pointlog.class);
+		// 해당 사용자의 포인트 내역 중 등록 날짜 순으로 가장 최신인 것을 뽑아서 담는다.
+	  Pointlog point = (Pointlog) pointlogs.orderBy("regdate desc").get(0);
+
+	  // 커넥션 닫기
 		Base.close();
 
+		System.out.println(point);
+		
 // 2. 실패할 경우 아무것도 하지 않고, false 를 ajax 로 돌려보낸다.
 		
 		// 회원 테이블 쿼리의 값이 false 라면 
-		if(m.equals(false)){
+		if(member.equals(false)){
 			
 			// AJAX에 nouser 값을 리턴한다.
 			String json = "noUser";
@@ -61,7 +70,7 @@ public class Login extends HttpServlet {
 			response.getWriter().write(json); 
 
 		// 회원 아이디는 있지만, 암호가 일치 하지 않으면!!
-		}else if(!m.get("password").equals(password)){
+		}else if(!member.get("password").equals(password)){
 			
 			// AJAX에 wrongpassword 값을 리턴한다.
 			String json = "wrongPassword";
@@ -76,13 +85,11 @@ public class Login extends HttpServlet {
 
 			// 세션 객체에 사용자의 고유번호(id), 사용자 id(userid), 
 			// 프로필 작성 완료도(completerate), 포인트(point)
-			// 
 			HttpSession session = request.getSession();
-			session.setAttribute("userid",m.get("userid"));
-			session.setAttribute("completerate", m.get("completerate"));
-			session.setAttribute("point", m.get("point"));
-			session.setAttribute("imgsrc", m.get(""));
-			
+			session.setAttribute("userid",member.get("userid"));
+			session.setAttribute("completerate", member.get("completerate"));
+			session.setAttribute("point", point.get("curpoint"));
+			session.setAttribute("imgsrc", "http://placehold.it/80");
 			
 			// AJAX 에 isUser 값을 리턴한다.
 			String json = "isUser";
@@ -94,22 +101,3 @@ public class Login extends HttpServlet {
 	}
 }
 
-//	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-//		try {
-//			process(request, response);
-//		} catch (SQLException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
-//	}
-//
-//	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-//		try {
-//			process(request, response);
-//		} catch (SQLException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
-//	}
-//
-//}

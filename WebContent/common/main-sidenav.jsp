@@ -7,7 +7,7 @@
 <c:choose>
  <c:when test="${isUser==null || isUser==false}">
   	<!--    회원가입 카드영역 시작 -->
-  <div class="row" id="registration_form">
+  <div class="row" >
   	<div class="col-xs-12">
   		<div class="row panel">
   			<div class="col-xs-12">
@@ -16,59 +16,62 @@
 								<h4 class=" text-center">회원 가입</h4>
 							</div>
 					</div>
-					<div class="row">	
-						<div class="col-xs-12">
-							<input type="email" class="form-control" id="exampleInputEmail1" placeholder="이메일 주소">
-						</div>
-					</div>
-					<div class="row no-gutters">
-						<div class="col-xs-4">
-							<input type="text" class="form-control" id="exampleInputEmail1" placeholder="성">
-						</div>
-						<div class="col-xs-8">
-							<input type="text" class="form-control" id="exampleInputEmail1" placeholder="이름">
-						</div>
-					</div>
-					<div class="row">	
+					<form id="registraion_form" method="post" name="registraion_form">
+						<div class="row">	
 							<div class="col-xs-12">
-								<input type="date" class="form-control" id="exampleInputEmail1" placeholder="생년월일">
+								<input type="email" class="form-control" name="email" placeholder="이메일 주소">
+							</div>
 						</div>
-					</div>
-					<div class="row no-gutters">
-						<div class="btn-group  btn-group-justified" data-toggle="buttons">
-						  <label class="btn btn-primary">
-						    <input type="radio" name="options" id="option1"> 남
-						  </label>
-						  <label class="btn btn-primary">
-						    <input type="radio" name="options" id="option2"> 여
-						  </label>
+						<div class="row no-gutters">
+							<div class="col-xs-4">
+								<input type="text" class="form-control" name="fname" placeholder="성">
+							</div>
+							<div class="col-xs-8">
+								<input type="text" class="form-control" name="name" placeholder="이름">
+							</div>
 						</div>
-					</div>
-					<div class="row">	
+						<div class="row">	
+								<div class="col-xs-12">
+									<input type="date" class="form-control" name="birthdate" placeholder="생년월일">
+							</div>
+						</div>
+						<div class="row no-gutters">
+							<div class="btn-group  btn-group-justified" data-toggle="buttons">
+							  <label class="btn btn-primary">
+							    <input type="radio" name="gender" id="option1" value="1"> 남
+							  </label>
+							  <label class="btn btn-primary">
+							    <input type="radio" name="gender" id="option2" value="2"> 여
+							  </label>
+							</div>
+						</div>
+						<div class="row">	
+								<div class="col-xs-12">
+									<input type="text" class="form-control" name="postno" placeholder="우편번호 예 -  155-550">
+							</div>
+						</div>
+						<div class="row no-gutters">
+							<div class="col-xs-6">
+								<input type="text" class="form-control" name="userid"  placeholder="아이디">
+							</div>
+							<div class="col-xs-6">
+								<input type="text" class="form-control" name="password"  placeholder="암호">
+							</div>
+						</div>
+						<div class="row">	
 							<div class="col-xs-12">
-								<input type="text" class="form-control" id="exampleInputEmail1" placeholder="우편번호">
+								<a class="btn form-control btn-primary" id="registration_submit">회원가입하기</a>
+							</div>
 						</div>
-					</div>
-					<div class="row no-gutters">
-						<div class="col-xs-6">
-							<input type="text" class="form-control" id="exampleInputEmail1"  placeholder="아이디">
+						<div class="row">	
+							<div class="col-xs-12">
+								<div class="well text-center">회원가입을 함으로써<a href="#">회원약관</a>에 동의합니다.</div>
+							</div>
 						</div>
-						<div class="col-xs-6">
-							<input type="text" class="form-control" id="exampleInputEmail1"  placeholder="암호">
-						</div>
-					</div>
-					<div class="row">	
-						<div class="col-xs-12">
-							<a class="btn form-control btn-primary"  id="exampleInputEmail1">회원가입하기</a>
-						</div>
-					</div>
-					<div class="row">	
-						<div class="col-xs-12">
-							<div class="well text-center">회원가입을 함으로써<a href="#">회원약관</a>에 동의합니다.</div>
-						</div>
-					</div>
-					<br>
+						<br>
+					</form>
 				</div>
+
 			</div>
 		</div>
   </div>

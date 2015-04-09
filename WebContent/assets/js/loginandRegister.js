@@ -56,7 +56,46 @@ $(document).ready(function(){
 	});
 	// 끝 : 로그아웃 버튼
 	
-	
+	// 시작 : 회원 가입 버튼 
+	//	로그인 전송 버튼이 클릭될 때!
+	$('#registration_submit').click(function() {
+		
+	// 폼 직렬화(스트림을 목적으로 객체를 변환)
+	var formData = $("#registraion_form").serialize();
+		
+	    // 전송 폼 값 확인
+		alert(formData);
+			
+		// 아이디/암호 체크하는 서블릿으로 폼 내용을 전송 및 결과값 수신
+		$.ajax({      
+	    type:"post",      // 보내는 방식
+	    data: formData,   // 보내는 자료 - 직렬화된 폼 자료
+	    url:"Registraion", // 요청주소
+	    dataType:'text',  // 받을 자료 종류, json 이다.
+	  	success:function(result){	  			
+	  		
+	  			// 결과 값 확인
+	  		alert(result);
+	  		       
+	  			// 로그인 서블릿에서 아이디와 암호를 체크한 결과가 이상하면
+  			if(result=="noUser" || result=="wrongPassword"){
+  					// 경고문구 숨김을 해체한다.
+  				$('login_form_alert').removeClass('hide');
+  			 	}
+	  				
+	  			// 로그인 서블릿 아이디 암호체크 통과하여 사용자임이 증명 되면
+	  		if(result=="isUser"){
+	  			window.location.replace("login.do");
+	  			}
+	  		
+	  		}, // 성공했을때 실행할 콜백, args 에는 받아온 결과내용이 들어 있다.
+	      
+	    error:function(e){  
+	        alert(e.responseText);  
+	    	}// 실패했을때 실행할 콜백, e는 오류 객체이고 responseText 로 결과내용을 출력
+		}); 	
+	});
+	// 끝 : 회원가입 버튼
 	
 	
 	//  항목 추가 버튼이 있는 span 요소에다가 on 을 걸어서

@@ -53,7 +53,7 @@ public class Login extends HttpServlet {
 		// 해당 사용자의 포인트 내역 중 등록 날짜 순으로 가장 최신인 것을 뽑아서 담는다.
 	  Pointlog point = (Pointlog) pointlogs.orderBy("regdate desc").get(0);
 
-	  // 커넥션 닫기
+	  	// 커넥션 닫기
 		Base.close();
 
 		System.out.println(point);

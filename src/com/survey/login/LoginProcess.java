@@ -34,7 +34,7 @@ public class LoginProcess implements Service{
 		ForwardInfo FInfo = new ForwardInfo();
 		// 기본 포워드 방식을 사용 안함으로, 목적지는 main.jsp 로 설정
 		FInfo.setForward(false);
-		FInfo.setForwardStr("/service/test/main.jsp");
+		FInfo.setForwardStr("/service/main/main.jsp");
 		
 // 1. 세션 객체에서 userid 를 뒤져서 로그인 여부를 확인하고
 
@@ -62,10 +62,10 @@ public class LoginProcess implements Service{
 
 			// 서베이 목록을 중 날짜 내림차순 정렬 목록 1 번부터 5개를 가져와서 목록에 담는다.
 			// LazyList<SurveyList> surveylist = SurveyList..where("1=1").offset(1).limit(5).rderBy("wdate desc");
-
-
 			
 //3. 리퀘스트 객체에 담아 forward 방식으로 mail.jsp 에 보낸다.
+			
+			session.getAttribute("");
 			
 			// toMaps() 으로 보내면 JSTL 에서 그냥 쓸 수 있다.
 			// list sms toMaps 로, 그냥 객체는 toMap 으로.

@@ -1,66 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<script src="./js/jquery-1.11.2.min.js" type="text/javascript"></script>
 
+<!-- jstl 변수 사용을 위해 taglib 로드! -->
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
-  <div class="row" id="user_profile">
-  	<div class="col-xs-12">
-  		<div class="row well">
-  			<div class="col-xs-12">	
-					<div class="media" id="user_media">
-						<a class="thumbnail pull-left" href="#">
-						<img
-							class="media-object" src="//placehold.it/80">
-						</a>
-						<div class="media-body">
-							<h4 class="media-heading">${sessioin.id}</h4>
-							<p>
-								<a class="btn btn-block btn-default">1000 포인트</a>
-							</p>
-						</div>
-					</div>
-				</div>
-  			<div class="row">
-  				<div class="col-xs-12">
-	  				<div class="progress" id="user_progress">
-								<div class="progress-bar progress-bar-info" style="width: 60%">프로필 작성 60% 완료</div>
-						</div>
-					</div>
-				</div>
-				<div class="row">	
-					<div class="col-xs-12">
-						<a class="btn btn-block btn-default">프로필 업데이트 하기</a>
-					</div>
-				</div>
-  		</div>
-  	</div>
-  </div>
-  
-	<!--    공시사항 카드영역 시작 -->
-  <div class="row">
-  	<div class="col-xs-12">
-  		<div class="row panel">
-  			<div class="col-xs-12">	
-					<div class="panel-heading">
-						<a href="./service/notice/list.jsp" class="pull-right">모두 보기</a>
-						<button id="sid" class="sid"> 모두보기</button> 
-						<h4>최신 소식들</h4>
-					</div>
-					<div class="panel-body" id="panel-body">
-				    <table class="table table-striped" id="shim">
-				    	<c:forEach var="notices" items="notice" begin="0" end="5" step="1">
-				    	<tr>
-	                <td>${notice.title}</td>
-	            </tr>
-							</c:forEach>
-				    </table>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-		<!--    공시사항 카드영역 끝-->
-  
+<c:choose>
+ <c:when test="${isUser==null || isUser==false}">
   	<!--    회원가입 카드영역 시작 -->
   <div class="row" id="registration_form">
   	<div class="col-xs-12">
@@ -128,3 +73,68 @@
 		</div>
   </div>
   <!--    회원가입 카드영역 끝 -->
+  </c:when>
+
+	<c:when test="${isUser==true}">
+  <div class="row" id="user_profile">
+  	<div class="col-xs-12">
+  		<div class="row well">
+  			<div class="col-xs-12">	
+					<div class="media" id="user_media">
+						<a class="thumbnail pull-left" href="#">
+						<img
+							class="media-object" src="${sessionScope.imgsrc}">
+						</a>
+						<div class="media-body">
+							<h4 class="media-heading">${sessionScope.userid}</h4>
+							<p>
+								<a class="btn btn-block btn-default">${sessionScope.point} 포인트</a>
+							</p>
+						</div>
+					</div>
+				</div>
+  			<div class="row">
+  				<div class="col-xs-12">
+	  				<div class="progress" id="user_progress">
+								<div class="progress-bar progress-bar-info" style="width: 60%">프로필 작성 ${sessionScope.completerate}% 완료</div>
+						</div>
+					</div>
+				</div>
+				<div class="row">	
+					<div class="col-xs-12">
+						<a class="btn btn-block btn-default">프로필 업데이트 하기</a>
+					</div>
+				</div>
+  		</div>
+  	</div>
+  </div>
+  </c:when>
+ </c:choose>
+  
+	<!--    공시사항 카드영역 시작 -->
+  <div class="row">
+  	<div class="col-xs-12">
+  		<div class="row panel">
+  			<div class="col-xs-12">	
+					<div class="panel-heading">
+						<a href="./service/notice/list.jsp" class="pull-right">모두 보기</a>
+						<button id="sid" class="sid"> 모두보기</button> 
+						<h4>최신 소식들</h4>
+					</div>
+					<!--  최근 공지글 5 개를 긁어서 보여준다. -->
+					<div class="panel-body" id="panel-body">
+				    <table class="table table-striped" id="shim">
+				    	<c:forEach var="notice" items="${notices}">
+					    	<tr>
+		               <td>${notice.title}</td>
+		            </tr>
+							</c:forEach>
+				    </table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+		<!--    공시사항 카드영역 끝-->
+  
+ 

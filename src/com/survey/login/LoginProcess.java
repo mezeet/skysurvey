@@ -67,7 +67,7 @@ public class LoginProcess implements Service{
 		LazyList<Notice> notices = Notice.where("1=1").orderBy("wdate desc").limit(5);
 
 		// 서베이 목록을 중 날짜 내림차순 정렬 목록 1 번부터 5개를 가져와서 목록에 담는다.
-		// LazyList<SurveyList> surveylist = SurveyList..where("1=1").offset(1).limit(5).rderBy("wdate desc");
+		// LazyList<SurveyList> surveylist = SurveyList.where("1=1").offset(1).limit(5).rderBy("wdate desc");
 		
 		List map = notices.toMaps();
 		

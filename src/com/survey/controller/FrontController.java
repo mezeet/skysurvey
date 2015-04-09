@@ -103,10 +103,10 @@ public class FrontController extends HttpServlet {
 		
 		if(forwardInfo.isForward()){
 			RequestDispatcher di
-			= request.getRequestDispatcher("/index.jsp");
+			= request.getRequestDispatcher("index.jsp");
 			di.forward(request, response);
 		} else {
-			response.sendRedirect("/index.jsp");
+			response.sendRedirect("index.jsp");
 		}
 		
 	}

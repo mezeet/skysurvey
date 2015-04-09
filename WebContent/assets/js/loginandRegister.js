@@ -6,6 +6,7 @@
 // 문서 내에 모든 요소가 불러와서 준비가 된 상태에서 실행
 $(document).ready(function(){
 	
+	// 시작 : 로그인 전송 버튼 
 	//	로그인 전송 버튼이 클릭될 때!
 	$('#login_submit').click(function() {
 		
@@ -44,6 +45,19 @@ $(document).ready(function(){
 	    	}// 실패했을때 실행할 콜백, e는 오류 객체이고 responseText 로 결과내용을 출력
 		}); 	
 	});
+	// 끝 : 로그인 전송 버튼
+	
+	// 시작 : 로그아웃 버튼 
+	//	로그아웃 버튼이 클릭될 때!
+	$('#header_menu_logout').click(function() {
+	
+		window.location.replace("logout.do");
+			
+	});
+	// 끝 : 로그아웃 버튼
+	
+	
+	
 	
 	//  항목 추가 버튼이 있는 span 요소에다가 on 을 걸어서
 	// 문서가 로드 된 이후에 ajax 로 삽입 된 항목에 있는 버튼도 ajax 작동을 할 수 있게 해준다.
